@@ -5,7 +5,6 @@ class Spillebrett:
     def __init__(self, rader, kolonner):
         self._rader = rader
         self._kolonner = kolonner
-        #self._rutenett = [[Celle()]*self._kolonner]*self._rader
         self._rutenett = [[Celle() for _ in range(self._kolonner)] for _ in range(self._rader)]
         self.generasjon = 0
         self.generer()
@@ -15,7 +14,6 @@ class Spillebrett:
         for i in range(self._rader):
             for j in range(self._kolonner):
                 arg = self._rutenett[i][j].hentStatusTegn()
-                #arg = obj.hentStatusTegn()
 
                 print(arg, end="")
             print("")
@@ -36,10 +34,7 @@ class Spillebrett:
                         counter += 1
 
                 if (counter < 2) or (counter > 3):
-                #if 2 > counter > 3:
                     dodende.append(self._rutenett[i][j])
-                #else:
-                #    levende.append(self._rutenett[i][j])
                 elif (counter == 2) or (counter == 3):
                     levende.append(self._rutenett[i][j])
                 else:
@@ -85,7 +80,9 @@ class Spillebrett:
 
 
 '''
-TEST = Spillebrett(20, 20)
+Tester:
+
+TEST = Spillebrett(7, 7)
 
 print("FIRST:")
 print("")
